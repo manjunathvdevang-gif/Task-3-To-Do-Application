@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 3: JavaScript Logic & State Management | To-Do List Application</title>
+  <meta name="description" content="State-driven, interactive client-side To-Do List app with full CRUD operations, localStorage persistence, advanced filtering, and delegated event listeners.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Screen Reader Live Announcements Region -->
+  <div id="live-region" class="visually-hidden" role="status" aria-live="polite" style="position: absolute; left: -9999px;"></div>
+
+  <div class="app-wrapper">
+    
+    <!-- App Header -->
+    <header class="app-header">
+      <div class="app-title-group">
+        <h1><span>TaskFlow</span> <span style="font-size: 1.25rem;">⚡</span></h1>
+        <p class="app-subtitle">State-Driven Task Management with Local Persistence</p>
+      </div>
+      <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle dark/light theme" type="button">☀️</button>
+    </header>
+
+    <!-- Main Application Card -->
+    <main class="todo-card" role="main">
+
+      <!-- Create Task Form -->
+      <form id="task-form" class="task-form" aria-label="Add new task">
+        <div class="form-row-main">
+          <input 
+            type="text" 
+            id="task-input" 
+            class="task-input" 
+            placeholder="What needs to be accomplished today?" 
+            required 
+            autocomplete="off"
+            aria-label="New task title"
+          >
+          <button type="submit" class="btn-add">
+            <span>Add Task</span>
+            <span aria-hidden="true">+</span>
+          </button>
+        </div>
+
+        <div class="form-row-meta">
+          <select id="priority-select" class="meta-select" aria-label="Task priority">
+            <option value="low">Priority: Low</option>
+            <option value="medium" selected>Priority: Medium</option>
+            <option value="high">Priority: High</option>
+          </select>
+
+          <select id="category-select" class="meta-select" aria-label="Task category">
+            <option value="General">General</option>
+            <option value="Development">Development</option>
+            <option value="Design">Design</option>
+            <option value="Accessibility">Accessibility</option>
+            <option value="Testing">Testing</option>
+          </select>
+
+          <input type="date" id="due-date-input" class="meta-input" aria-label="Optional due date">
+        </div>
+      </form>
+
+      <!-- Advanced Filter & Search Toolbar -->
+      <div class="filter-search-bar">
+        <div class="filter-tabs" role="tablist" aria-label="Filter tasks by completion status">
+          <button type="button" class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button type="button" class="filter-tab" data-filter="active" role="tab" aria-selected="false">Active</button>
+          <button type="button" class="filter-tab" data-filter="completed" role="tab" aria-selected="false">Completed</button>
+        </div>
+
+        <input 
+          type="search" 
+          id="search-input" 
+          class="search-input" 
+          placeholder="Search tasks..." 
+          aria-label="Filter tasks by text search"
+        >
+      </div>
+
+      <!-- State-Driven Task List Container (Delegated Event Target) -->
+      <ul id="task-list" class="task-list" aria-label="Task items list">
+        <!-- Dynamically rendered via app.js -->
+      </ul>
+
+      <!-- App Summary Footer -->
+      <div class="todo-footer">
+        <span id="items-left-count">0 tasks remaining</span>
+        <button type="button" id="clear-completed-btn" class="btn-clear-completed">Clear completed</button>
+      </div>
+
+    </main>
+
+    <!-- Return to Hub -->
+    <div class="portal-return-link">
+      <a href="../task-1-2-portfolio/index.html">← Back to Portfolio Showcase</a>
+    </div>
+
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
